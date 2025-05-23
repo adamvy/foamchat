@@ -1,0 +1,18 @@
+p({
+  "class": "foam.core.boot.CSpec",
+  "name": "chatDAO",
+  "description": "",
+  "serve": true,
+  "authenticate": true,
+  "keywords": [ "chat" ],
+  "serviceScript": """
+    return new foam.dao.EasyDAO.Builder(x)
+      .setOf(com.foamdev.chat.Chat.getOwnClassInfo())
+      .setPm(true)
+      .setFuid(true)
+      .setAuthorize(false)
+      .setJournalType(foam.dao.JournalType.SINGLE_JOURNAL)
+      .build();
+  """,
+  "client": `{"of":"com.foamdev.chat.Chat"}`
+})
