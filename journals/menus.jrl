@@ -1,14 +1,11 @@
 p({
-  "class":"foam.core.menu.Menu",
+  "class":"com.foamdev.chat.ChatMenu",
   "id":"foamdev.chat",
   "label":"Chat",
   "authenticate":true,
   "keywords":[""],
   "handler":{
-    "class":"foam.core.menu.DAOMenu2",
-    "config":{
-      "class":"foam.comics.v2.DAOControllerConfig",
-      "daoKey":"chatDAO"
-    }
+    "class":"foam.core.menu.ViewMenu",
+    "view": { "class": "com.foamdev.chat.ChatMenuView" }
   }
 })

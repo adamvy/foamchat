@@ -16,3 +16,22 @@ p({
   """,
   "client": `{"of":"com.foamdev.chat.Chat"}`
 })
+
+p({
+  "class": "foam.core.boot.CSpec",
+  "name": "messageDAO",
+  "description": "",
+  "serve": true,
+  "authenticate": true,
+  "keywords": [ "chat" ],
+  "serviceScript": """
+    return new foam.dao.EasyDAO.Builder(x)
+      .setOf(com.foamdev.chat.Message.getOwnClassInfo())
+      .setPm(true)
+      .setFuid(true)
+      .setAuthorize(false)
+      .setJournalType(foam.dao.JournalType.SINGLE_JOURNAL)
+      .build();
+  """,
+  "client": `{"of":"com.foamdev.chat.Message"}`
+})

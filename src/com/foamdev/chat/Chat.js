@@ -33,16 +33,6 @@ foam.CLASS({
     {
       class: 'String',
       name: 'description'
-    },
-    {
-      class: 'Enum',
-      of: 'com.foamdev.chat.ChatCategory',
-      name: 'category',
-      value: 'OTHER'
-    },
-    {
-      class: 'String',
-      name: 'source'
     }
   ],
 
