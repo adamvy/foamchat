@@ -1,0 +1,6 @@
+// disable login of default foam admin user
+p({
+  "class":"foam.core.auth.User",
+  "id":42,
+  "loginEnabled":false
+})
