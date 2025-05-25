@@ -5,7 +5,7 @@ foam.CLASS({
   implements: [
     'foam.core.auth.CreatedAware',
     'foam.core.auth.CreatedByAware',
-    'foam.core.auth.LastModifiedAware',
+    'foam.core.auth.LastModifiedAware'
   ],
 
   tableColumns: [
