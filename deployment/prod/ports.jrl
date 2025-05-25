@@ -1,0 +1,11 @@
+p({
+  "class": "foam.net.Port",
+  "id": "http",
+  "number": 9001
+})
+
+p({
+  "class": "foam.net.Port",
+  "id": "WebSocketServer",
+  "number": 9002
+})
