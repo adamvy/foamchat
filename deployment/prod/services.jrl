@@ -1,0 +1,67 @@
+p({
+  "class": "foam.core.boot.CSpec",
+  "name": "http",
+  "lazy": false,
+  "service": {
+    "class": "foam.core.jetty.HttpServer",
+    "welcomeFiles": ["welcome"],
+    "hostDomains":["chat.foamdev.com"],
+    "servletMappings": [{
+      "class": "foam.core.servlet.ServletMapping",
+      "servletObject": {
+        "class": "foam.core.servlet.VirtualHostRoutingServlet",
+        "defaultHost":"chat.foamdev.com",
+        "headerParameters": {
+          "Cache-Control": "public,max-age=3600,immutable"
+        }
+      },
+      "pathSpec": "/welcome"
+    }, {
+      "class": "foam.core.servlet.ServletMapping",
+      "className": "foam.core.http.NanoRouter",
+      "pathSpec": "/service/*"
+    }, {
+      "class": "foam.core.servlet.ServletMapping",
+      "className": "foam.core.servlet.ImageServlet",
+      "pathSpec": "/images/*",
+      "initParameters": {
+        "cacheControl": "public,max-age=2419200"
+      }
+    }],
+    "errorMappings": [{
+      "class": "foam.core.servlet.ErrorPageMapping",
+      "errorCode": 404,
+      "location": "/errorPage.html"
+    }, {
+      "class": "foam.core.servlet.ErrorPageMapping",
+      "exceptionType": "javax.ws.rs.NotAuthorizedException",
+      "location": "/unauthorizedAccess.html"
+    }, {
+      "class": "foam.core.servlet.ErrorPageMapping",
+      "exceptionType": "java.lang.Throwable",
+      "location": "/errorPage.html"
+    }],
+    "filterMappings": [{
+      "class": "foam.core.servlet.FilterMapping",
+      "filterClass": "foam.core.http.csp.CSPFilter",
+      "pathSpec": "/*",
+      "initParameters": {
+        "CONTENT_SECURITY_POLICY": """
+          default-src 'self' data: chrome-extension-resource:;
+          connect-src 'self' http://localhost:*/service/ https://fonts.googleapis.com/css2 https://www.google.com/pagead;
+          frame-src 'self' data: blob: filesystem:;
+          frame-ancestors 'self';
+          font-src 'self' https://fonts.gstatic.com data: chrome-extension-resource:;
+          img-src 'self' data: blob: filesystem: https://play.google.com;
+          manifest-src 'self';
+          media-src * data: blob: filesystem:;
+          object-src 'self' data: blob: filesystem:;
+          report-uri /service/CSPReportWebAgent;
+          worker-src 'self';
+          style-src 'self' https://fonts.googleapis.com/css https://fonts.googleapis.com/css2 https://fonts.googleapis.com/icon data: chrome-extension-resource: 'unsafe-inline';
+          script-src 'self' https://cdn.plaid.com/link/v2/stable/link-initialize.js https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js https://cdnjs.cloudflare.com/ajax/libs/ace/1.39.0/ 'unsafe-eval' 'sha256-HY1JzEwuxkis4xx0ggY23gbYY/MCEAE1T6+OQnWS2vA=' 'sha256-NiNrLgJ8wbIXIi5saiR3XTd1Mxm4k0nju66GJsw4b9U=' 'sha256-FLYDXBkz4oo/H5jEfYXqAGYUwERY44OO1yznaMCdMiU=' 'sha256-G3UfiJBy6rwOk3glkBQuQDFA7IoCtiOT56gTh+IfNF0=' 'sha256-VqQW98BZz58NothFoAKVTq/UrLorSsLU11mhJjLFzW0=';
+        """
+      }
+    }]
+  }
+})
