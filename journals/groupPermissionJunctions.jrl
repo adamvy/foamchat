@@ -1,26 +1,32 @@
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamdev",targetId:"user.readByGroup.foamdev"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"user.readByGroup.foamdev"})
 
 // FOAM
 // simple password management
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamdev",targetId:"menu.read.reset-password"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"menu.read.reset-password"})
 
 // spid
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamdev",targetId:"serviceprovider.read.foam"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"serviceprovider.read.foam"})
 
 // Password
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamdev",targetId:"service.passwordDAO"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamdev",targetId:"menu.read.password"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamdev",targetId:"password.create"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamdev",targetId:"password.read.*"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamdev",targetId:"password.update.*"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"service.passwordDAO"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"menu.read.password"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"password.create"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"password.read.*"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"password.update.*"})
 
-// p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamdev",targetId:"menu.read.foamdevAdmin"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamdev",targetId:"menu.read.foamdev.crunch.personalsettings"})
+// p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"menu.read.foamdevAdmin"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"menu.read.foamdev.crunch.personalsettings"})
 
 // specific model
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamdev",targetId:"service.chatDAO"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamdev",targetId:"chat.create"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamdev",targetId:"chat.read.*"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamdev",targetId:"chat.update.*"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamdev",targetId:"chat.delete.*"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamdev",targetId:"menu.read.foamdev.chat"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"service.chatDAO"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"chat.create"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"chat.read.*"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"chat.update.*"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"chat.delete.*"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"menu.read.foamdev.chat"})
+
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"service.messageDAO"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"message.create"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"message.read.*"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"message.update.*"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"message.delete.*"})
