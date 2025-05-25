@@ -5,7 +5,8 @@ Chat app powered by foam.  Simple text messaging for now, but long term goal to 
 
 ## TODO
 
-- [ ] registration doesnt work, need to set default new group (probably just needs themeing)
+- [x] data is not real time, listeners need to be fixed
+- [x] registration doesnt work, need to set default new group (probably just needs themeing)
 - [ ] styling/themeing
 - [ ] sender names/timestamps
 - [ ] better scrolling/layout of chat messages
