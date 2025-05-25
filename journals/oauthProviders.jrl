@@ -1,0 +1,8 @@
+p({
+  "clientId": "6874706186-mbjpdfdes9154p9sse6njqmf51s6ljfa.apps.googleusercontent.com",
+  "clientSecret": "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",
+  "description": "Sign in with Google",
+  "icon": "/images/google.svg",
+  "tokenURL": "https://oauth2.googleapis.com/token",
+  "authURL": "https://accounts.google.com/o/oauth2/v2/auth"
+})
