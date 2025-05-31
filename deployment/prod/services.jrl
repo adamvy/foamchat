@@ -26,7 +26,11 @@ p({
       "className": "foam.core.servlet.ImageServlet",
       "pathSpec": "/images/*",
       "initParameters": {
-        "cacheControl": "public,max-age=2419200"
+        "cacheControl": "public,max-age=2419200",
+        "dirAllowed": "false",
+        "pathInfoOnly": "true",
+        "precompressed": "true",
+        "welcomeServlets": "true"
       }
     }],
     "errorMappings": [{
