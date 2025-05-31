@@ -6,6 +6,7 @@ p({
     "class": "foam.core.jetty.HttpServer",
     "welcomeFiles": ["welcome"],
     "hostDomains":["chat.foamdev.com"],
+    "isResourceStorage": true,
     "servletMappings": [{
       "class": "foam.core.servlet.ServletMapping",
       "servletObject": {
