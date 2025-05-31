@@ -38,7 +38,7 @@ foam.CLASS({
           this.add(self.error);
         } else if ( ! data ) {
           var config = self.DAOControllerConfig.create({ daoKey: "chatDAO" });
-          this.tag(config.browseController, { config });
+          this.tag(config.browseController, { config, data: dao });
         } else {
           this.tag(self.ChatView, { data });
         }
