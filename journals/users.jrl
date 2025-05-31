@@ -1,0 +1,6 @@
+// used for local testing
+p({
+  "class":"foam.core.auth.User",
+  "id":42,
+  "loginEnabled":true
+})
