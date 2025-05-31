@@ -26,7 +26,14 @@ p({
       "className": "foam.core.servlet.ImageServlet",
       "pathSpec": "/images/*",
       "initParameters": {
-        "cacheControl": "public,max-age=2419200",
+        "cacheControl": "public,max-age=2419200"
+      }
+    },{
+      "class": "foam.core.servlet.ServletMapping",
+      "className": "org.eclipse.jetty.servlet.DefaultServlet",
+      "pathSpec": "/*",
+      "initParameters": {
+        "cacheControl": "public,max-age=2419200,immutable",
         "dirAllowed": "false",
         "pathInfoOnly": "true",
         "precompressed": "true",
