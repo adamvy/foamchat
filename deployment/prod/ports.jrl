@@ -3,9 +3,3 @@ p({
   "id": "http",
   "number": 10000
 })
-
-p({
-  "class": "foam.net.Port",
-  "id": "WebSocketServer",
-  "number": 10001
-})
