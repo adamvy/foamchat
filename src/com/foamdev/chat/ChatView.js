@@ -35,7 +35,6 @@ foam.CLASS({
   methods: [
     function render() {
       var self = this;
-      
       this
         .addClass()
         .start("div")
@@ -48,12 +47,15 @@ foam.CLASS({
             scrollTop = this.element_.scrollTop
             scrollBottom = (this.element_.scrollHeight ?? 0) - scrollTop - this.element_.clientHeight;
           });
-          var scrollContainer = this;
-          this.scrollHeight$.sub(() => {
+
+          var callback = () => {
             if ( scrollBottom < 30 ) {
               this.element_.scrollTop = this.element_.scrollHeight + scrollBottom + this.element_.clientHeight;
             }
-          })
+          };
+
+          this.resizeObserver(callback);
+          this.scrollHeight$.sub(callback);
         })
         .add(self.dynamic(function(data) {
           this

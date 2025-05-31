@@ -9,3 +9,4 @@ p({
     "view": { "class": "com.foamdev.chat.ChatMenuView" }
   }
 })
+

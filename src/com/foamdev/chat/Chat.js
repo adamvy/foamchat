@@ -10,12 +10,12 @@ foam.CLASS({
   tableColumns: [
     'name',
     'description',
-    'category'
+    'open',
   ],
 
   searchColumns: [
     'name',
-    'category'
+    'description'
   ],
 
   properties: [
@@ -42,6 +42,15 @@ foam.CLASS({
     },
     function toString() {
       return this.toSummary();
+    }
+  ],
+  actions: [
+    {
+      name: 'open',
+      isAvailable: function() { return !!this.id },
+      code: function(x) {
+        x.routeTo('foamdev.chat/' + this.id);
+      }
     }
   ]
 });

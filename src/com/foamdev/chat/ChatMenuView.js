@@ -17,6 +17,9 @@ foam.CLASS({
       memorable: true,
       shortName: 'route',
       documentation: 'Chat to open',
+      postSet: function() {
+        this.data = undefined;
+      }
     },
     'data',
     'error',
