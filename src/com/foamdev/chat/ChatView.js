@@ -21,10 +21,13 @@ foam.CLASS({
   ],
   css: `
 ^{
+  padding: 12px;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr min-content;
 }
 
 ^messages {
-  height: 100%;
   overflow-y: scroll;
 }
 
@@ -40,7 +43,7 @@ foam.CLASS({
         .observeScrollHeight()
         .call(function() {
           var scrollTop;
-          var scrollBottom;
+          var scrollBottom = 0;
           this.on("scroll", () => {
             scrollTop = this.element_.scrollTop
             scrollBottom = (this.element_.scrollHeight ?? 0) - scrollTop - this.element_.clientHeight;
