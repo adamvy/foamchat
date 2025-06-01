@@ -6,6 +6,9 @@ foam.CLASS({
     'com.foamdev.chat.Composer',
     'com.foamdev.chat.Message'
   ],
+  imports: [
+    'stack?'
+  ],
   properties: [
     {
       name: 'limit',
@@ -35,6 +38,7 @@ foam.CLASS({
   methods: [
     function render() {
       var self = this;
+      this.stack$?.get()?.setTitle(this.data$.dot('name'));
       this
         .addClass()
         .start("div")
