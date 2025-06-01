@@ -27,10 +27,5 @@ p({
   "tertiaryDisabledColor":"#b4b4b4",
   "createdBy":1,
   "createdByAgent":1,
-  "created":"2020-04-29T22:32:52.685Z",
-  "customCSS": """
-  body {
-    height: 100dvh;
-  }
-  """
+  "created":"2020-04-29T22:32:52.685Z"
 })
