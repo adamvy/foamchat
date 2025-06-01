@@ -38,6 +38,21 @@ foam.CLASS({
   methods: [
     function render() {
       var self = this;
+
+      
+      // TODO: Should this live in ApplicationController somewhere
+
+      // Adjust document size when the virtual keyboard opens
+      const viewport = () => {
+        document.body.style.height = window.visualViewport.height;
+      };
+      viewport();
+      window.visualViewport.addEventListener('resize', viewport);
+      this.onDetach(() => {
+        window.visualViewport.removeEventListener('resize', viewport);
+        document.body.style.height = undefined;
+      });
+      
       this.stack$?.get()?.setTitle(this.data$.dot('name'));
       this
         .addClass()
