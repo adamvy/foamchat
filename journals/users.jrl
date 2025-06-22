@@ -2,5 +2,7 @@
 p({
   "class":"foam.core.auth.User",
   "id":42,
-  "loginEnabled":true
+  "loginEnabled":true,
+  "password": "ft+e4NkiAD0=:mGqLQObtlXTJdEAMIkvgZGqEOqa07YHPZHwghe6DokpDoJBVH3NI15Gw36ykT3LgD22w4uz5q3rx69e2Puzwfw=="
 })
+

@@ -10,3 +10,18 @@ p({
   }
 })
 
+
+// User's own notification settings
+p({
+  class: 'foam.core.menu.Menu',
+  id: 'user-settings',
+  label: 'Settings',
+  parent: 'settings',
+  handler: {
+    class: "foam.core.menu.ViewMenu",
+    view: {
+      class: 'com.foamdev.chat.SettingsView'
+    }
+  },
+  order: 2
+})

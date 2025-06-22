@@ -6,8 +6,10 @@ foam.POM({
   files: [
     { name: 'Chat',                     flags: 'js|java' },
     { name: 'ChatView',                 flags: 'web' },
+    { name: 'MessageView',              flags: 'web' },
     { name: 'ChatMenu',                 flags: 'js|java' },
     { name: "ChatMenuView",             flags: 'web' },
+    { name: "SettingsView",             flags: 'web' },
     { name: 'Composer',                 flags: 'web' },
     { name: 'Message',                  flags: 'js|java' }
   ]

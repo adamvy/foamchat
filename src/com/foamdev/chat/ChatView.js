@@ -4,43 +4,65 @@ foam.CLASS({
   extends: 'foam.u2.View',
   requires: [
     'com.foamdev.chat.Composer',
-    'com.foamdev.chat.Message'
+    'com.foamdev.chat.Message',
+    'com.foamdev.chat.MessageView'
   ],
   imports: [
-    'stack?'
+    'stack?',
+    'subject'
   ],
   properties: [
     {
       name: 'limit',
-      value: 100
+      value: 50
     },
     {
       class: 'String',
       name: 'textInput',
     },
   ],
-  imports: [
-    'subject'
-  ],
   css: `
-^{
-  padding: 12px;
-  height: 100%;
-  display: grid;
-  grid-template-rows: 1fr min-content;
-}
-
-^messages {
-  overflow-y: scroll;
-}
-
-`,
+    ^ {
+      padding: 20px;
+      height: 80vh;
+      display: grid;
+      grid-template-rows: 1fr min-content;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    ^messages {
+      overflow-y: scroll;
+    }
+    ^divider {
+      background-color: #DCF8C6;
+      color: white;
+      text-align: center;
+      padding: 5px;
+      margin: 10px 0;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+    ^input-area {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #F0F0F0;
+      padding: 10px;
+      border-top: 1px solid #ccc;
+      display: flex;
+      align-items: center;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 10px 10px 0 0;
+    }
+  `,
   methods: [
     function render() {
       var self = this;
-
-      
-      // TODO: Should this live in ApplicationController somewhere
 
       // Adjust document size when the virtual keyboard opens
       const viewport = () => {
@@ -52,8 +74,8 @@ foam.CLASS({
         window.visualViewport.removeEventListener('resize', viewport);
         document.body.style.height = undefined;
       });
-      
-      this.stack$?.get()?.setTitle(this.data$.dot('name'));
+
+      this.stack$?.get()?.setTitle(this.data$.dot('name'), this);
       this
         .addClass()
         .start("div")
@@ -63,12 +85,12 @@ foam.CLASS({
           var scrollTop;
           var scrollBottom = 0;
           this.on("scroll", () => {
-            scrollTop = this.element_.scrollTop
+            scrollTop = this.element_.scrollTop;
             scrollBottom = (this.element_.scrollHeight ?? 0) - scrollTop - this.element_.clientHeight;
           });
 
           var callback = () => {
-            if ( scrollBottom < 30 ) {
+            if (scrollBottom < 30) {
               this.element_.scrollTop = this.element_.scrollHeight + scrollBottom + this.element_.clientHeight;
             }
           };
@@ -77,18 +99,12 @@ foam.CLASS({
           this.scrollHeight$.sub(callback);
         })
         .add(self.dynamic(function(data) {
-          this
-            .select(data.messages.orderBy(self.Message.CREATED), function(msg) {
-              this
-                .start('div')
-                .call(function() {
-                  msg.addToE(this);
-                })
-                .end()
-            })
+          this.select(data.messages.orderBy(self.Message.CREATED), function(msg) {
+            this.tag(self.MessageView, { data: msg });
+          });
         }))
         .end()
-        .tag(this.Composer, { dao$: this.data.dot('messages') })
+        .tag(this.Composer, { dao$: this.data.dot('messages') });
     }
   ]
 });
