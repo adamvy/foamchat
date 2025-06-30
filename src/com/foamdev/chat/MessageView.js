@@ -6,7 +6,8 @@ foam.CLASS({
     'foam.u2.tag.Image'
   ],
   imports: [
-//    'userDAO' // Importing userDAO to fetch user details
+    'subject',
+    'userDAO' // Importing userDAO to fetch user details
   ],
   properties: [
     {
@@ -23,6 +24,7 @@ foam.CLASS({
       width: 40px;
       height: 40px;
       border-radius: 50%;
+      overflow: hidden;
       background-color: #ccc;
       display: flex;
       align-items: center;
@@ -76,8 +78,7 @@ foam.CLASS({
     function render() {
       var self = this;
       var msg = this.data; // The message object passed as data
-      //      var isOwnMessage = msg.createdBy === self.subject.user.id; // Use 'createdBy' to identify own messages
-      var isOwnMessage = false;
+      var isOwnMessage = msg.createdBy === self.subject.user.id; // Use 'createdBy' to identify own messages
 
       var cache = this.USER_CACHE
 
@@ -94,7 +95,7 @@ foam.CLASS({
       if ( cached.staleAfter < Date.now() ) {
         cached.staleAfter = Date.now() + 30000;
         // TODO: do this using a join once we add support for joins
-        this.__context__.userDAO.find(msg.createdBy).then((sender) => {
+        this.userDAO.find(msg.createdBy).then((sender) => {
           sender$.set(sender);
         });
       }
@@ -102,9 +103,8 @@ foam.CLASS({
       this
         .addClass()
         .addClass(isOwnMessage ? self.myClass('own-message') : '')
-        .start('div', null, this.avatar$)
-        .addClass(self.myClass('avatar'))
         .start('img')
+        .addClass(self.myClass('avatar'))
         .attrs({ src: sender$.dot("profilePicture").dot("address"), decoding: "sync" })
         .end('img')
         // .start(foam.u2.tag.Image, {
@@ -112,7 +112,6 @@ foam.CLASS({
       //   sync: true
         // })
         // .end()
-        .end()
         .start('div')
         .addClass(self.myClass('message-body'))
         .start('div')
