@@ -20,16 +20,22 @@ p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"
 // specific model
 p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"service.chatDAO"})
 p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"chat.create"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"chat.read.*"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"chat.update.*"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"chat.delete.*"})
+//p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"chat.read.*"})
+//p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"chat.update.*"})
+//p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"chat.delete.*"})
 p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"menu.read.foamdev.chat"})
 
 p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"service.messageDAO"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"message.create"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"message.read.*"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"message.update.*"})
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"message.delete.*"})
+//p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"message.create"})
+//p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"message.read.*"})
+//p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"message.update.*"})
+//p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"message.delete.*"})
+
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"service.chatUserJunctionDAO"})
+//p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"chatuserjunction.create"})
+//p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"chatuserjunction.read.*"})
+//p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"chatuserjunction.update.*"})
+//p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"chatuserjunction.delete.*"})
 
 
 p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"menu.read.user-settings"})

@@ -1,0 +1,15 @@
+p({
+  "class":"foam.core.ruler.Rule",
+  "id":"com_foamdev_chat_createChatRule",
+  "name":"Create Chat Rule",
+  "documentation":"Adds creator of a chat to that chat",
+  "ruleGroup":"chat",
+  "daoKey":"chatDAO",
+  "operation":0,
+  "after": true,
+  "action":{
+    "class":"com.foamdev.chat.CreateChatRuleAction"
+  },
+  "enabled":true,
+  "lifecycleState":1
+})

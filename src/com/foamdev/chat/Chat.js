@@ -4,7 +4,8 @@ foam.CLASS({
 
   implements: [
     'foam.core.auth.CreatedAware',
-    'foam.core.auth.LastModifiedAware'
+    'foam.core.auth.LastModifiedAware',
+    'foam.core.auth.Authorizable',
   ],
 
   tableColumns: [
@@ -42,7 +43,46 @@ foam.CLASS({
     },
     function toString() {
       return this.toSummary();
-    }
+    },
+    {
+      name: 'isMember',
+      type: 'Boolean',
+      args: [
+        { name: 'x', type: 'Context' },
+        { name: 'userId', type: 'Long' },
+      ],
+      javaCode: `
+return ((foam.dao.DAO)x.get("chatUserJunctionDAO")).find(new ChatUserJunctionId(getId(), userId)) != null;
+`,
+    },
+    {
+      name: 'authorizeOnCreate',
+      javaCode: `
+// anyone can create a chat
+`
+    },
+    {
+      name: 'authorizeOnRead',
+      javaCode: `
+if ( ! isMember(x, ((foam.core.auth.Subject)x.get("subject")).getUser().getId()) ) {
+  throw new foam.core.auth.AuthorizationException();
+}
+`
+    },
+    {
+      name: 'authorizeOnUpdate',
+      javaCode: `
+if ( ! isMember(x, ((foam.core.auth.Subject)x.get("subject")).getUser().getId()) ) {
+  throw new foam.core.auth.AuthorizationException();
+}
+`
+    },
+    {
+      name: 'authorizeOnDelete',
+      javaCode: `
+throw new foam.core.auth.AuthorizationException();
+`
+    },
   ],
   actions: [
     {

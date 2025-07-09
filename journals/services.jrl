@@ -10,7 +10,7 @@ p({
       .setOf(com.foamdev.chat.Chat.getOwnClassInfo())
       .setPm(true)
       .setFuid(true)
-      .setAuthorize(false)
+      .setAuthorize(true)
       .setJournalType(foam.dao.JournalType.SINGLE_JOURNAL)
       .build();
   """,
@@ -29,7 +29,7 @@ p({
       .setOf(com.foamdev.chat.Message.getOwnClassInfo())
       .setPm(true)
       .setFuid(true)
-      .setAuthorize(false)
+      .setAuthorize(true)
       .setJournalType(foam.dao.JournalType.SINGLE_JOURNAL)
       .build();
   """,
@@ -40,7 +40,24 @@ p({
   }`
 })
 
-
+p({
+  "class": "foam.core.boot.CSpec",
+  "name": "chatUserJunctionDAO",
+  "description": "",
+  "serve": true,
+  "authenticate": true,
+  "keywords": [ "chat" ],
+  "serviceScript": """
+    return new foam.dao.EasyDAO.Builder(x)
+      .setOf(com.foamdev.chat.ChatUserJunction.getOwnClassInfo())
+      .setPm(true)
+      .setFuid(true)
+      .setAuthorize(false)
+      .setJournalType(foam.dao.JournalType.SINGLE_JOURNAL)
+      .build();
+  """,
+  "client": `{"of":"com.foamdev.chat.ChatUserJunction"}`
+})
 
 p({
   "class": "foam.core.boot.CSpec",

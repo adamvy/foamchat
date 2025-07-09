@@ -33,6 +33,7 @@ $ ./build.sh "--appHome:/path/to/app/home"
 - [x] sender names/timestamps
 - [x] sender avatars
 - [x] better scrolling/layout of chat messages
+- [x] permissions
 - [ ] richer messages
   - [ ] rich text (links/styling)
   - [ ] attachments (images/gifs/videos)
