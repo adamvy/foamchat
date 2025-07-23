@@ -41,5 +41,5 @@ p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"
 p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"menu.read.user-settings"})
 
 // needed to read other user avatars, sensistive properties should have column level permissions
-p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"user.read.*"})
-
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"user.readByGroup.foamchat"})
+p({class:"foam.core.auth.GroupPermissionJunction",sourceId:"foamchat",targetId:"user.column.userName"})

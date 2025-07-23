@@ -13,3 +13,20 @@ p({
   "enabled":true,
   "lifecycleState":1
 })
+
+
+p({
+  "class":"foam.core.ruler.Rule",
+  "id":"com_foamdev_chat_MessageNotifyRule",
+  "name":"Create Chat Rule",
+  "documentation":"Message Notify Rule",
+  "ruleGroup":"chat",
+  "daoKey":"messageDAO",
+  "operation":3,
+  "after": true,
+  "action":{
+    "class":"foam.core.notification.NotifiableNotificationRuleAction"
+  },
+  "enabled":true,
+  "lifecycleState":1
+})

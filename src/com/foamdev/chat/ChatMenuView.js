@@ -19,6 +19,7 @@ foam.CLASS({
       documentation: 'Chat to open',
       postSet: function() {
         this.data = undefined;
+        this.error = undefined;
       }
     },
     'data',
@@ -37,11 +38,11 @@ foam.CLASS({
             self.error = e.message ? e.message : '' + e;
           });
           this.add('Loading...');
-        } else if ( ! data && !! self.error) {
-          this.add(self.error);
-        } else if ( ! data ) {
+        } else if ( key == "" ) {
           var config = self.DAOControllerConfig.create({ daoKey: "chatDAO" });
           this.tag(config.browseController, { config, data: dao });
+        } else if ( ! data ) {
+          this.add(self.error || "Not found.");
         } else {
           this.tag(self.ChatView, { data });
         }

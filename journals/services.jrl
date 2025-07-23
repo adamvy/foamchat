@@ -14,7 +14,12 @@ p({
       .setJournalType(foam.dao.JournalType.SINGLE_JOURNAL)
       .build();
   """,
-  "client": `{"of":"com.foamdev.chat.Chat"}`
+  "client": """
+    {
+      "of":"com.foamdev.chat.Chat",
+      "remoteListenerSupport": true
+    }
+  """
 })
 
 p({
@@ -136,4 +141,27 @@ p({
       }
     }]
   }
+})
+
+p({
+  "class":"foam.core.boot.CSpec",
+  "name":"WebPushService",
+  "lazy":true,
+  "serve":false,
+  "authenticate":false,
+  "service":{
+    "class":"foam.core.notification.push.WebPushService",
+    "supportEmail": "adam.vany@gmail.com",
+    "publicKey":"BMg1S-l-WBzz6P1O5YbThzYp1i7cKMmBQ_YNEVkPBR7LQlXFhyDOU7XUWpL2rNHEILa9ssZW1Dvx1520olewMP0",
+    "privateKey":"P78ufF_btHDzVb8boW-M0iDEARbiWQ4i8zTCLVsHd9g"
+  }
+})
+
+p({
+  "class": "foam.core.boot.CSpec",
+  "name": "ServiceWorker",
+  "authenticate": false,
+  "lazyClient": false,
+  "serve": true,
+  "client": `{ "class": "com.foamdev.chat.ServiceWorker" }`
 })

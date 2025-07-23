@@ -13,6 +13,7 @@ foam.POM({
     { name: 'Composer',                 flags: 'web' },
     { name: 'Message',                  flags: 'js|java' },
     { name: "ChatUserJunction",         flags: "js|java" },
-    { name: "CreateChatRuleAction",         flags: "js|java" },
+    { name: "CreateChatRuleAction",     flags: "js|java" },
+    { name: "ServiceWorker",            flags: "web" },
   ]
 });

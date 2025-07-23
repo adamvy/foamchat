@@ -8,8 +8,8 @@ foam.CLASS({
   implements: [ 'foam.mlang.Expressions' ],
 
   requires: [
-    'foam.dao.ArrayDAO',
-    'foam.dao.PromisedDAO',
+    'com.foamdev.chat.Chat',
+    'foam.dao.AdapterDAO',
     'foam.core.menu.Menu',
     'foam.core.menu.ViewMenu',
   ],
@@ -20,28 +20,22 @@ foam.CLASS({
     {
       name: 'children_',
       factory: function() {
-        /* ignoreWarning */
-        var aDAO = this.ArrayDAO.create();
-        var pDAO = this.PromisedDAO.create();
-
-        // TODO: Make this dynamic, not one-shot on first access
-        this.chatDAO
-          .select(chat => {
-            var menu = this.Menu.create({
-              id:     this.id + '/' + chat.id,
-              label:  chat.name,
-              parent: this.id,
-              handler: this.ViewMenu.create({
-                view: {
-                  class: 'com.foamdev.chat.ChatView',
-                  data: chat
-                }
-              })
-            });
-            aDAO.put(menu);
-        }).then(() => pDAO.promise.resolve(aDAO));
-
-        return pDAO.orderBy(this.Menu.LABEL);
+        return this.AdapterDAO.create({
+          delegate: this.chatDAO,
+          to: this.Chat,
+          of: this.Menu,
+          adaptFromDelegate: (x, chat) => (this.Menu.create({
+            id:     this.id + '/' + chat.id,
+            label:  chat.name,
+            parent: this.id,
+            handler: this.ViewMenu.create({
+              view: {
+                class: 'com.foamdev.chat.ChatView',
+                data: chat
+              }
+            })
+          }))
+        }).orderBy(this.Menu.LABEL);
       }
     },
     {
