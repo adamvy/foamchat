@@ -42,7 +42,8 @@ foam.CLASS({
 
         await this.pushRegistry.subscribe(null, sub.endpoint, key, auth, sub.token, 'GRANTED');
       } catch (e) {
-        console.error(e); 
+        debugger;
+        console.log(e); 
       }
     }
   ]
