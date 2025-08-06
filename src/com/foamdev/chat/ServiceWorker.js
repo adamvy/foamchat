@@ -27,6 +27,7 @@ foam.CLASS({
 
         if ( await this.auth.isAnonymous(null) ) {
           console.log("not registering push for anonymosu user");
+          return;
         }
 
         console.log("registering for push");
