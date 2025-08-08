@@ -152,8 +152,8 @@ p({
   "serviceScript":"""
     return new foam.core.notification.push.WebPushService.Builder(x)
       .setSupportEmail("adam.vany@gmail.com")
-      .setPublicKey(System.getenv("VAPID_PUBLIC_KEY"))
-      .setPrivateKey(System.getenv("VAPID_PRIVATE_KEY"))
+      .setPublicKey(System.getProperty("webpush.public.key"))
+      .setPrivateKey(System.getProperty("webpush.private.key"))
       .build();
   """
 })
