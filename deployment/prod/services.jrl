@@ -78,9 +78,17 @@ p({
   }
 })
 
+// enable service worker in production builds
+p({
+  "class": "foam.core.boot.CSpec",
+  "name": "ServiceWorker",
+  "authenticate": false,
+  "lazyClient": false,
+  "serve": true,
+  "client": `{ "class": "com.foamdev.chat.ServiceWorker" }`
+})
 
 // disable healath heartbeat services, was causing issues
-
 r({
   "class": "foam.core.boot.CSpec",
   "name": "healthHeartbeatService",

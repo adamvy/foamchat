@@ -156,12 +156,3 @@ p({
     "privateKey":"P78ufF_btHDzVb8boW-M0iDEARbiWQ4i8zTCLVsHd9g"
   }
 })
-
-p({
-  "class": "foam.core.boot.CSpec",
-  "name": "ServiceWorker",
-  "authenticate": false,
-  "lazyClient": false,
-  "serve": true,
-  "client": `{ "class": "com.foamdev.chat.ServiceWorker" }`
-})
