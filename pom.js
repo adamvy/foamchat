@@ -4,6 +4,7 @@ foam.POM({
   projects: [
     { name: 'foam3/pom'},
     { name: 'src/com/foamdev/chat/pom'},
-    { name: 'journals/pom' }
+    { name: 'journals/pom' },
+    { name: "webroot/pom" },
   ]
 });
