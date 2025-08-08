@@ -22,8 +22,26 @@ self.addEventListener('push', event => {
 });
 
 self.addEventListener('notificationclick', event => {
+  const url = event.notification.data?.url || '/';
   event.notification.close();
+
   event.waitUntil(
-    clients.openWindow(event.notification.data?.url || '/')
+    clients.matchAll({
+      type: 'window',
+      includeUncontrolled: true
+    }).then(clientList => {
+      // Check if there's a window with the same URL.
+      for (let i = 0; i < clientList.length; i++) {
+        let client = clientList[i];
+        // Use endsWith to ignore query params and fragments for a more robust match
+        if ( client.url.endsWith(url) && 'focus' in client ) {
+          return client.focus();
+        }
+      }
+      // If no window was found, open a new one.
+      if (clients.openWindow) {
+        return clients.openWindow(url);
+      }
+    })
   );
 });
