@@ -34,7 +34,7 @@ foam.CLASS({
         
         var sub = await reg.pushManager.subscribe({
           userVisibleOnly: true,
-          applicationServerKey: 'BMg1S-l-WBzz6P1O5YbThzYp1i7cKMmBQ_YNEVkPBR7LQlXFhyDOU7XUWpL2rNHEILa9ssZW1Dvx1520olewMP0'
+          applicationServerKey: 'BD5qTe6VQvYnURr10F-6Ptyo_CdmVn2pT6cCadsQTShjTxfEEVYLbOB9_QvjMgDk_LZuAb3jJS9h03AMp0pe1Y4'
         });
 
 

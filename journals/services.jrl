@@ -149,10 +149,11 @@ p({
   "lazy":true,
   "serve":false,
   "authenticate":false,
-  "service":{
-    "class":"foam.core.notification.push.WebPushService",
-    "supportEmail": "adam.vany@gmail.com",
-    "publicKey":"BMg1S-l-WBzz6P1O5YbThzYp1i7cKMmBQ_YNEVkPBR7LQlXFhyDOU7XUWpL2rNHEILa9ssZW1Dvx1520olewMP0",
-    "privateKey":"P78ufF_btHDzVb8boW-M0iDEARbiWQ4i8zTCLVsHd9g"
-  }
+  "serviceScript":"""
+    return new foam.core.notification.push.WebPushService.Builder(x)
+      .setSupportEmail("adam.vany@gmail.com")
+      .setPublicKey(System.getenv("VAPID_PUBLIC_KEY"))
+      .setPrivateKey(System.getenv("VAPID_PRIVATE_KEY"))
+      .build();
+  """
 })
