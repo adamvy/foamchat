@@ -31,10 +31,22 @@ foam.CLASS({
         }
 
         console.log("registering for push");
+
+        var applicationServerKey = 'BD5qTe6VQvYnURr10F-6Ptyo_CdmVn2pT6cCadsQTShjTxfEEVYLbOB9_QvjMgDk_LZuAb3jJS9h03AMp0pe1Y4';
         
-        var sub = await reg.pushManager.subscribe({
+        var sub = await reg.pushManager.getSubscription();
+
+        if ( sub && sub.options.applicationServerKey == applicationServerKey ) {
+          return;
+        }
+
+        if ( sub && sub.options ) {
+          sub.unsubscribe();
+        }
+        
+        sub = await reg.pushManager.subscribe({
           userVisibleOnly: true,
-          applicationServerKey: 'BD5qTe6VQvYnURr10F-6Ptyo_CdmVn2pT6cCadsQTShjTxfEEVYLbOB9_QvjMgDk_LZuAb3jJS9h03AMp0pe1Y4'
+          applicationServerKey,
         });
 
 
@@ -43,7 +55,6 @@ foam.CLASS({
 
         await this.pushRegistry.subscribe(null, sub.endpoint, key, auth, sub.token, 'GRANTED');
       } catch (e) {
-        debugger;
         console.log(e); 
       }
     }
