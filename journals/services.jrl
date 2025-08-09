@@ -142,18 +142,3 @@ p({
     }]
   }
 })
-
-p({
-  "class":"foam.core.boot.CSpec",
-  "name":"WebPushService",
-  "lazy":true,
-  "serve":false,
-  "authenticate":false,
-  "serviceScript":"""
-    return new foam.core.notification.push.WebPushService.Builder(x)
-      .setSupportEmail("adam.vany@gmail.com")
-      .setPublicKey(System.getProperty("webpush.public.key"))
-      .setPrivateKey(System.getProperty("webpush.private.key"))
-      .build();
-  """
-})
