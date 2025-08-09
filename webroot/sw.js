@@ -33,8 +33,7 @@ self.addEventListener('notificationclick', event => {
       // Check if there's a window with the same URL.
       for (let i = 0; i < clientList.length; i++) {
         let client = clientList[i];
-        // Use endsWith to ignore query params and fragments for a more robust match
-        if ( client.url.endsWith(url) && 'focus' in client ) {
+        if ( client.url === url && 'focus' in client ) {
           return client.focus();
         }
       }
