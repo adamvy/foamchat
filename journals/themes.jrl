@@ -25,6 +25,11 @@ p({
   "tertiaryColor":"#5e6061",
   "tertiaryHoverColor":"#406dea",
   "tertiaryDisabledColor":"#b4b4b4",
+  "appConfig": {
+    "class": "foam.core.app.AppConfig",
+    "privacyUrl": "https://chat.foamdev.com/privacy.html",
+    "termsAndCondLink": "https://chat.foamdev.com/terms.html"
+  },
   "createdBy":1,
   "createdByAgent":1,
   "created":"2020-04-29T22:32:52.685Z"
