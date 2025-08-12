@@ -1,0 +1,49 @@
+# Code style guide
+
+This is a foam3 based project, lean heavily into standard MVC and gang of four design patterns.
+
+Our server application is a java monolith with an internal nano service architecture.  HTTP/WebSockets are handled by Jetty, but we use our own WebAgents and CSpec for providing services.
+
+We use plain javascript and java.
+
+When writing java, do the following:
+- prefer var syntax over typed variables
+- prefer casting over generics
+- Use FOAM's builder syntax when building foam objects when appropriate
+  var someObject = new some.packaged.SomeClass.Builder(x)
+    .setFoo()
+    .setBar()
+    .build()
+
+- use descriptive but short variable names
+- use StringBuilder when assembling strings.
+- prefer fully qualified type names (some.package.SomeType) over imports
+
+
+When writing javascript do not use any external dependencies, foam3 is a relatively complete framework, any other methods you can't find in foam we can just code ourselves and add.
+
+# Application Overview
+
+This is a simple chat application in the com.foamdev.chat package.
+
+com.foamdev.chat.Message is the message entity
+com.foamdev.chat.Chat is the chat room/channel entity.
+
+
+# Build and running
+
+This project uses foam3's Project Object Model (pom.js) format.
+
+The project can be build by running the top level build.sh script which invokes the build tool.
+
+The project can be run locally using top level run.sh
+
+## Build process overview
+
+The build script will process the top level pom.js file and any other pom.js files pulled in.
+
+It will generate a pom.xml file for using maven to download dependencies.
+
+It will generate java code from js files into build/src/java, it will generate 
+
+It outputs the build artifacts under the build directory.
